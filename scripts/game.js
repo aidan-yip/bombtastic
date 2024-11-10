@@ -1,3 +1,6 @@
+// Created by Aidan Yip
+// Copyright Aidan Yip. 2024.
+
 // ================
 // variables
 // ================

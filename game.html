@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0 viewport-fit=cover"
+    />
+    <!-- Stylesheet link -->
+    <link rel="stylesheet" href="styles/normalize-fwd.css" />
+    <link rel="stylesheet" href="styles/game.css" />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+    <!-- Script link -->
+    <script src="scripts/game.js" defer></script>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Created by Aidan Yip -->
+    <!-- Copyright Aidan Yip. 2024. -->
+    <title>Bombtastic</title>
+  </head>
+  <body>
+    <main>
+      <section id="win_popup" class="draggable" title="Click and drag to move">
+        <h1 id="title" tabindex="0">YOU WIN!!!</h1>
+        <h2 id="text" tabindex="0">The universe is safe well done.</h2>
+        <span class="emoji" tabindex="0">🎉</span>
+        <button id="win_popup_button" tabindex="0">OK</button>
+      </section>
+
+      <section id="lose_popup" class="draggable" title="Click and drag to move">
+        <h1 id="title" tabindex="0">YOU LOSE!!!</h1>
+        <h2 id="text" tabindex="0">The universe blew up...</h2>
+        <span class="emoji" tabindex="0">💥</span>
+        <button id="lose_popup_button" tabindex="0">OK</button>
+      </section>
+
+      <section class="sidebar">
+        <h1 id="title" tabindex="0">Bombtastic</h1>
+        <h2 id="text" tabindex="0">Instructions:</h2>
+        <p id="text" tabindex="0">
+          The bombs will randomly cycle through being active and inactive.
+          Deactivate 30 bombs within the time limit to save the universe!
+        </p>
+        <h2 id="text" tabindex="0">Controls:</h2>
+        <p id="text" tabindex="0">
+          Hover over the grid to select. Click on the white outlined boxes to
+          deactivate the bombs.
+        </p>
+        <h2 id="time_text" tabindex="0">
+          Time: <span id="time" tabindex="0">30</span>
+        </h2>
+        <h2 id="score_text" tabindex="0">
+          Score: <span id="score" tabindex="0">0</span>
+        </h2>
+
+        <button id="start_button" tabindex="0">Start Game</button>
+        <button id="reset_button" tabindex="0">Restart</button>
+      </section>
+
+      <section id="game_window">
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+        <button class="bomb_container" tabindex="0" aria-label="Bomb. Click to add to score.">
+          <div class="bomb"></div>
+        </button>
+      </section>
+    </main>
+  </body>
+</html>

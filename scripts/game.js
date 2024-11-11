@@ -108,7 +108,7 @@ function enable_bombs() {
   console.log(`Bombs Enabled`);
 }
 
-// math random code from https://www.tutorialspoint.com/how-to-select-a-random-element-from-array-in-javascript
+// math random code snippet from https://www.tutorialspoint.com/how-to-select-a-random-element-from-array-in-javascript
 function random_disabled_bomb() {
   const random_bomb = Math.floor(
     Math.random() * game_elements.bomb_containers.length

@@ -115,7 +115,7 @@ function random_disabled_bomb() {
   );
   // insert random number in selector to select random bomb html node
   game_elements.bomb_containers[random_bomb].setAttribute(`disabled`, true);
-  console.log(`Bomb AI ` + random_bomb);
+  console.log(`Bomb Automation: ` + random_bomb);
 }
 
 function random_enabled_bomb() {
@@ -124,7 +124,7 @@ function random_enabled_bomb() {
   );
   // insert random number in selector to select random bomb html node
   game_elements.bomb_containers[random_bomb].removeAttribute(`disabled`);
-  console.log(`Bomb AI ` + random_bomb);
+  console.log(`Bomb Automation: ` + random_bomb);
 }
 
 // bomb click event

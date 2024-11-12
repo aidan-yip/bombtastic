@@ -11,6 +11,7 @@ npm-debug.log*
 
 # Mac system files
 .DS_Store
+music/.DS_Store
 
 # IDE specific files
 .vscode/

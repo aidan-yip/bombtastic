@@ -1,0 +1,137 @@
+/* Created by Aidan Yip
+   Copyright Aidan Yip. 2024. */
+
+/* base/root */
+
+:root {
+  --main-font: "Silkscreen", sans-serif;
+}
+
+/* iPhone remove padding in web app mode */
+@supports (padding: max(0px)) {
+  body,
+  header,
+  footer {
+    padding-left: min(0vmin, env(safe-area-inset-left));
+    padding-right: min(0vmin, env(safe-area-inset-right));
+  }
+}
+
+body {
+  background-color: #1b1b1b;
+  font-family: var(--main-font);
+  color: #ffffff;
+}
+
+/* typography */
+
+h1 {
+  font-size: 2.7em;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  text-shadow: 1px 1px #280000, 2px 2px #280000, 3px 3px #280000,
+    4px 4px #280000, 5px 5px #280000, 6px 6px #280000, 7px 7px #280000,
+    8px 8px #280000, 0px 0px 25px #ffffff;
+  /* animation */
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+/* inputs */
+
+#start_button {
+  position: relative;
+  top: 4rem;
+  width: 18rem;
+  height: 4rem;
+  font-family: var(--main-font);
+  font-size: 1rem;
+  border: #ffffff solid 3px;
+  box-shadow: #ffffff 0 0 10px inset;
+  background-color: transparent;
+  color: #ffffff;
+  transition: 0.1s;
+  animation: button_scale 1s infinite ease-in-out;
+}
+
+#start_button:hover {
+  border: #ff1919 solid 3px;
+  box-shadow: #ff1919 0 0 10px inset;
+}
+
+#start_button:active {
+  border: #0bff38 solid 3px;
+  box-shadow: #0bff38 0 0 10px inset;
+  scale: 0.9;
+}
+
+/* sections/containers */
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #e6de00 100%
+  );
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  animation: fade_in 7s;
+}
+
+/* desktop */
+@media (min-width: 50rem) {
+  h1 {
+    font-size: 7em;
+  }
+  #start_button {
+    width: 30rem;
+    height: 7rem;
+    font-size: 1.5rem;
+  }
+}
+
+/* keyframes */
+
+@keyframes fade_in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, -0px);
+  }
+}
+
+@keyframes button_scale {
+  50% {
+    font-size: 1.3rem;
+  }
+}

@@ -6,7 +6,7 @@
 // ================
 
 // game stat variables
-let time = 30;
+let time = 45;
 let score = 0;
 
 // game timeout variables
@@ -21,7 +21,7 @@ let countdown_timer;
 // audio variables
 // ================
 
-let main_theme = new Audio(`music/bomb_main_theme.mp3`);
+let main_theme = new Audio(`music/game_sequence_premixtest.mp3`);
 let explode_sound = new Audio(`audio/explode.wav`);
 
 // ================
@@ -187,8 +187,8 @@ function start_game() {
   reset_button.setAttribute(`disabled`, true);
   start_button.innerHTML = ``;
   three_dot_repeat = setInterval(three_dot_animation, 600);
-  bomb_disable_repeat = setInterval(random_disabled_bomb, 200);
-  bomb_enable_repeat = setInterval(random_enabled_bomb, 200);
+  bomb_disable_repeat = setInterval(random_disabled_bomb, 150);
+  bomb_enable_repeat = setInterval(random_enabled_bomb, 150);
   // game start countdown
   countdown_timer = setInterval(countdown, 1000);
 
@@ -238,7 +238,7 @@ function end_game() {
 
 function reset_game() {
   score = 0;
-  time = 30;
+  time = 45;
   score_text.innerHTML = `Score: ${score}`;
   time_text.innerHTML = `Time: ${time}`;
   start_button.removeAttribute(`disabled`);

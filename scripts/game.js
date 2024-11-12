@@ -132,12 +132,14 @@ function random_enabled_bomb() {
 // bomb click event
 game_elements.bomb_containers.forEach((bombs) => {
   bombs.addEventListener(`click`, () => {
-    score++;
-    score_text.innerHTML = `Score: ${score}`;
-    console.log(`score:` + score);
-    if (score >= 30) {
-      win();
-      end_game();
+    if (!countdown_timer_paused) {
+      score++;
+      score_text.innerHTML = `Score: ${score}`;
+      console.log(`score:` + score);
+      if (score >= 30) {
+        win();
+        end_game();
+      }
     }
   });
 });
@@ -228,9 +230,11 @@ function start_game() {
 
 // pause game function
 function pause_game() {
+  disable_bombs();
   clearInterval(countdown_timer);
   clearInterval(bomb_disable_repeat);
   clearInterval(bomb_enable_repeat);
+  time_text.innerHTML = `Paused`;
   clearInterval(three_dot_repeat);
   game_elements.pause_button_icon.innerHTML = `play_arrow`;
   pause_main_theme();
@@ -239,9 +243,11 @@ function pause_game() {
 }
 
 function resume_game() {
+  enable_bombs();
   countdown_timer = setInterval(countdown, 1000);
   bomb_disable_repeat = setInterval(random_disabled_bomb, 150);
   bomb_enable_repeat = setInterval(random_enabled_bomb, 150);
+  time_text.innerHTML = `Time: ${time}`;
   three_dot_repeat = setInterval(three_dot_animation, 600);
   game_elements.pause_button_icon.innerHTML = `pause`;
   play_main_theme();
@@ -265,6 +271,7 @@ function end_game() {
   // game end audio
   stop_main_theme();
   // game end functions
+  pause_button.style.display = `none`;
   start_button.innerHTML = `Game Over`;
   // stop three dot animation
   clearInterval(three_dot_repeat);
@@ -337,6 +344,7 @@ function win() {
   console.log(`Activate win state`);
 }
 
+// win and lose popup button event listeners
 lose_popup_button.addEventListener(`click`, () => {
   // remove blur on game window and sidebar
   game_elements.sidebar.style.filter = `blur(0px)`;

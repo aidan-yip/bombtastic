@@ -15,7 +15,8 @@ let bomb_enable_repeat;
 let three_dot_repeat;
 
 // game interval variables
-let countdown_timer;
+let countdown_timer = time;
+let countdown_timer_paused = false;
 
 // ================
 // audio variables
@@ -30,7 +31,6 @@ let explode_sound = new Audio(`audio/explode.wav`);
 
 // main theme audio functions
 function play_main_theme() {
-  main_theme.currentTime = 0;
   main_theme.play();
 }
 
@@ -66,6 +66,8 @@ function stop_explode_sound() {
 const game_elements = {
   start_button: document.querySelector(`#start_button`),
   reset_button: document.querySelector(`#reset_button`),
+  pause_button: document.querySelector(`#pause_button`),
+  pause_button_icon: document.querySelector(`span.font_icon`),
   lose_popup_button: document.querySelector(`#lose_popup_button`),
   win_popup_button: document.querySelector(`#win_popup_button`),
   bomb_containers: document.querySelectorAll(`.bomb_container`),
@@ -177,6 +179,22 @@ game_elements.reset_button.addEventListener(`click`, () => {
   reset_game();
 });
 
+// game duration countdown
+function countdown() {
+  time--;
+  time_text.innerHTML = `Time: ${time}`;
+  console.log(time);
+  // if time is 0, stop timer to end game
+  if (time <= 0) {
+    end_game();
+    lose();
+  }
+}
+
+// ====================
+// start game functions
+// ====================
+
 function start_game() {
   // game start audio
   play_main_theme();
@@ -185,24 +203,13 @@ function start_game() {
   explode_color_fade();
   start_button.setAttribute(`disabled`, true);
   reset_button.setAttribute(`disabled`, true);
+  pause_button.style.display = `block`;
   start_button.innerHTML = ``;
   three_dot_repeat = setInterval(three_dot_animation, 600);
   bomb_disable_repeat = setInterval(random_disabled_bomb, 150);
   bomb_enable_repeat = setInterval(random_enabled_bomb, 150);
   // game start countdown
   countdown_timer = setInterval(countdown, 1000);
-
-  // game duration countdown
-  function countdown() {
-    time--;
-    time_text.innerHTML = `Time: ${time}`;
-    console.log(time);
-    // if time is 0, stop timer to end game
-    if (time <= 0) {
-      end_game();
-      lose();
-    }
-  }
 
   // bomb explode color fade on game start
   function explode_color_fade() {
@@ -214,6 +221,41 @@ function start_game() {
   }
   console.log(`Game Started`);
 }
+
+// ====================
+// pause/resume game state functions
+// ====================
+
+// pause game function
+function pause_game() {
+  clearInterval(countdown_timer);
+  clearInterval(bomb_disable_repeat);
+  clearInterval(bomb_enable_repeat);
+  clearInterval(three_dot_repeat);
+  game_elements.pause_button_icon.innerHTML = `play_arrow`;
+  pause_main_theme();
+  countdown_timer_paused = true;
+  console.log(`Game Paused`);
+}
+
+function resume_game() {
+  countdown_timer = setInterval(countdown, 1000);
+  bomb_disable_repeat = setInterval(random_disabled_bomb, 150);
+  bomb_enable_repeat = setInterval(random_enabled_bomb, 150);
+  three_dot_repeat = setInterval(three_dot_animation, 600);
+  game_elements.pause_button_icon.innerHTML = `pause`;
+  play_main_theme();
+  countdown_timer_paused = false;
+  console.log(`Game Resumed`);
+}
+
+game_elements.pause_button.addEventListener(`click`, () => {
+  if (!countdown_timer_paused) {
+    pause_game();
+  } else if (countdown_timer_paused) {
+    resume_game();
+  }
+});
 
 // ====================
 // game end functions
@@ -242,6 +284,7 @@ function reset_game() {
   score_text.innerHTML = `Score: ${score}`;
   time_text.innerHTML = `Time: ${time}`;
   start_button.removeAttribute(`disabled`);
+  pause_button.style.display = `none`;
   start_button.innerHTML = `Start Game`;
   game_elements.bombs.forEach((bombs) => {
     bombs.style.transition = `none`;

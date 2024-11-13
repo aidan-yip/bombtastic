@@ -7,16 +7,6 @@
   --main-font: "Silkscreen", sans-serif;
 }
 
-/* iPhone remove padding in web app mode */
-@supports (padding: max(0px)) {
-  body,
-  header,
-  footer {
-    padding-left: min(0vmin, env(safe-area-inset-left));
-    padding-right: min(0vmin, env(safe-area-inset-right));
-  }
-}
-
 body {
   background-color: #1b1b1b;
   font-family: var(--main-font);

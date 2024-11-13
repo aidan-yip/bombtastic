@@ -235,6 +235,7 @@ function pause_game() {
   clearInterval(bomb_disable_repeat);
   clearInterval(bomb_enable_repeat);
   time_text.innerHTML = `Paused`;
+  game_elements.pause_button_icon.setAttribute('aria-label', 'Game Paused');
   clearInterval(three_dot_repeat);
   game_elements.pause_button_icon.innerHTML = `play_arrow`;
   pause_main_theme();
@@ -248,6 +249,7 @@ function resume_game() {
   bomb_disable_repeat = setInterval(random_disabled_bomb, 150);
   bomb_enable_repeat = setInterval(random_enabled_bomb, 150);
   time_text.innerHTML = `Time: ${time}`;
+  game_elements.pause_button_icon.setAttribute('aria-label', 'Game Resumed');
   three_dot_repeat = setInterval(three_dot_animation, 600);
   game_elements.pause_button_icon.innerHTML = `pause`;
   play_main_theme();

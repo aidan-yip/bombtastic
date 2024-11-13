@@ -67,13 +67,7 @@ main {
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(
-    -225deg,
-    #231557 0%,
-    #44107a 29%,
-    #ff1361 67%,
-    #e6de00 100%
-  );
+  background-image: linear-gradient( 111.1deg,  #002846 -4.8%, #fe4242 82.7%, #ff8f3e 97.2% );
 }
 
 section {

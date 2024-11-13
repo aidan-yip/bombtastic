@@ -205,7 +205,7 @@ function start_game() {
   explode_color_fade();
   start_button.setAttribute(`disabled`, true);
   reset_button.setAttribute(`disabled`, true);
-  pause_button.style.display = `block`;
+  pause_button.style.display = `flex`;
   start_button.innerHTML = ``;
   three_dot_repeat = setInterval(three_dot_animation, 600);
   bomb_disable_repeat = setInterval(random_disabled_bomb, 150);

@@ -49,6 +49,7 @@ h1 {
   font-family: var(--main-font);
   font-size: 1rem;
   border: #ffffff solid 3px;
+  border-radius: 7px;
   box-shadow: #ffffff 0 0 10px inset;
   background-color: transparent;
   color: #ffffff;

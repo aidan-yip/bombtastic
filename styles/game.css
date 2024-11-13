@@ -35,7 +35,7 @@ main {
   align-items: center;
   margin: 0 auto;
   overflow-y: scroll;
-  background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
+  background-image: linear-gradient(to top, #453a94 0%, #f43b47 100%);
 }
 
 /* typography */
@@ -71,12 +71,15 @@ span.font_icon {
 
 #start_button,
 #reset_button,
-#pause_button {
+#pause_button,
+#win_popup_button,
+#lose_popup_button {
   height: 4rem;
   margin-top: 1rem;
   font-family: var(--main-font);
   font-size: 1.5rem;
   border: #ffffff solid 3px;
+  border-radius: 5px;
   box-shadow: #ffffff 0 0 10px inset;
   background-color: transparent;
   color: #ffffff;
@@ -85,6 +88,8 @@ span.font_icon {
 
 #pause_button {
   display: none;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   z-index: 100;
   bottom: 2rem;
@@ -196,11 +201,7 @@ span.font_icon {
   height: 4rem;
   width: 10rem;
   font-size: 1.2rem;
-  font-family: var(--main-font);
-  border: #ffffff solid 3px;
-  box-shadow: #ffffff 0 0 10px inset;
-  background-color: transparent;
-  color: #ffffff;
+  border-radius: 5px;
 }
 
 .bomb_container {
@@ -211,6 +212,7 @@ span.font_icon {
   height: 4rem;
   margin: 0 auto;
   border: #ffffff solid 3px;
+  border-radius: 5px;
   background-color: transparent;
   box-shadow: #ffffff 0 0 10px inset;
   transition: 0.1s;
@@ -245,6 +247,7 @@ span.font_icon {
   margin: 0 auto;
   background-color: #ffffff;
   border-style: none;
+  border-radius: 2px;
   transition: 35s;
 }
 

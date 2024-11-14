@@ -136,7 +136,7 @@ game_elements.bomb_containers.forEach((bombs) => {
       score++;
       score_text.innerHTML = `Score: ${score}`;
       console.log(`score:` + score);
-      if (score >= 30) {
+      if (score >= 45) {
         win();
         end_game();
       }

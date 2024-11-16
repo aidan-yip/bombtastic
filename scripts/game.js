@@ -22,41 +22,65 @@ let countdown_timer_paused = false;
 // audio variables
 // ================
 
+// music
 let main_theme = new Audio(`music/game_sequence_premixtest.mp3`);
+
+// sound fx
 let explode_sound = new Audio(`audio/explode.wav`);
+let game_pause_sound = new Audio(`audio/pause.mp3`);
+let game_resume_sound = new Audio(`audio/resume.mp3`);
 
 // ================
 // audio functions
 // ================
 
+// ================
+// music
+// ================
+
 // main theme audio functions
 function play_main_theme() {
   main_theme.play();
-}
+};
 
 function pause_main_theme() {
   main_theme.pause();
-}
+};
 
 function stop_main_theme() {
   main_theme.currentTime = 0;
   main_theme.pause();
-}
+};
 
-// explode sound audio functions
+// ================
+// sound fx
+// ================
+
+// game resume sound
+function play_game_pause_sound() {
+  game_pause_sound.currentTime = 0;
+  game_pause_sound.play();
+};
+
+function play_game_resume_sound() {
+  game_resume_sound.currentTime = 0;
+  game_resume_sound.play();
+};
+
+// explode sound
 function play_explode_sound() {
   explode_sound.currentTime = 0;
   explode_sound.play();
-}
+};
 
 function pause_explode_sound() {
   explode_sound.pause();
-}
+};
 
 function stop_explode_sound() {
   explode_sound.currentTime = 0;
   explode_sound.pause();
-}
+};
 
 // ================
 // game objects
@@ -230,12 +254,13 @@ function start_game() {
 
 // pause game function
 function pause_game() {
+  play_game_pause_sound();
   disable_bombs();
   clearInterval(countdown_timer);
   clearInterval(bomb_disable_repeat);
   clearInterval(bomb_enable_repeat);
   time_text.innerHTML = `Paused`;
-  game_elements.pause_button_icon.setAttribute('aria-label', 'Game Paused');
+  game_elements.pause_button_icon.setAttribute("aria-label", "Game Paused");
   clearInterval(three_dot_repeat);
   game_elements.pause_button_icon.innerHTML = `play_arrow`;
   pause_main_theme();
@@ -244,12 +269,13 @@ function pause_game() {
 }
 
 function resume_game() {
+  play_game_resume_sound();
   enable_bombs();
   countdown_timer = setInterval(countdown, 1000);
   bomb_disable_repeat = setInterval(random_disabled_bomb, 150);
   bomb_enable_repeat = setInterval(random_enabled_bomb, 150);
   time_text.innerHTML = `Time: ${time}`;
-  game_elements.pause_button_icon.setAttribute('aria-label', 'Game Resumed');
+  game_elements.pause_button_icon.setAttribute("aria-label", "Game Resumed");
   three_dot_repeat = setInterval(three_dot_animation, 600);
   game_elements.pause_button_icon.innerHTML = `pause`;
   play_main_theme();

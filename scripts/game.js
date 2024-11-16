@@ -42,21 +42,21 @@ let game_resume_sound = new Audio(`audio/resume.mp3`);
 // main theme audio functions
 function play_main_theme() {
   main_theme.play();
-};
+}
 
 function pause_main_theme() {
   main_theme.pause();
-};
+}
 
 function stop_main_theme() {
   main_theme.currentTime = 0;
   main_theme.pause();
-};
+}
 
 // win jingle audio functions
 function play_win_jingle() {
   win_jingle.play();
-};
+}
 
 // ================
 // sound fx
@@ -66,27 +66,27 @@ function play_win_jingle() {
 function play_game_pause_sound() {
   game_pause_sound.currentTime = 0;
   game_pause_sound.play();
-};
+}
 
 function play_game_resume_sound() {
   game_resume_sound.currentTime = 0;
   game_resume_sound.play();
-};
+}
 
 // explode sound
 function play_explode_sound() {
   explode_sound.currentTime = 0;
   explode_sound.play();
-};
+}
 
 function pause_explode_sound() {
   explode_sound.pause();
-};
+}
 
 function stop_explode_sound() {
   explode_sound.currentTime = 0;
   explode_sound.pause();
-};
+}
 
 // ================
 // game objects
@@ -361,22 +361,24 @@ function win() {
   play_win_jingle();
   // cycle bomb color to green in left to right sequence
   cycle_bomb_color();
-  // blur game window and sidebar
-  game_elements.sidebar.style.filter = `blur(5px)`;
-  game_elements.game_window.style.filter = `blur(5px)`;
   // change time text to win message
   time_text.innerHTML = `You Win!`;
-  // scale win popup down
-  win_popup.style.scale = `0`;
-  // scale win popup back up after 400ms
-  setTimeout(() => {
-    win_popup.style.scale = `1.1`;
-  }, 400);
-  setTimeout(() => {
-    win_popup.style.scale = `1`;
-  }, 900);
   // display win popup
-  win_popup.style.display = `flex`;
+  setTimeout(() => {
+    // blur game window and sidebar
+    game_elements.sidebar.style.filter = `blur(5px)`;
+    game_elements.game_window.style.filter = `blur(5px)`;
+    win_popup.style.display = `flex`;
+    // scale win popup down
+    win_popup.style.scale = `0`;
+    // scale win popup back up after 400ms
+    setTimeout(() => {
+      win_popup.style.scale = `1.1`;
+    }, 400);
+    setTimeout(() => {
+      win_popup.style.scale = `1`;
+    }, 900);
+  }, 6700);
   console.log(`Activate win state`);
 }
 

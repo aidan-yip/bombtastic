@@ -6,7 +6,7 @@ const start_button = document.querySelector(`#start_button`);
 const main = document.querySelector(`main`);
 
 // audio variables
-let main_title = new Audio(`music/menu_loop_premixtest.mp3`);
+let main_title = new Audio(`music/menu_loop.mp3`);
 
 start_button.addEventListener(`click`, () => {
   // start game

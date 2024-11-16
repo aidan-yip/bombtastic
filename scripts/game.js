@@ -23,7 +23,8 @@ let countdown_timer_paused = false;
 // ================
 
 // music
-let main_theme = new Audio(`music/game_sequence_premixtest.mp3`);
+let main_theme = new Audio(`music/game_sequence.mp3`);
+let win_jingle = new Audio(`music/win_jingle.mp3`);
 
 // sound fx
 let explode_sound = new Audio(`audio/explode.wav`);
@@ -50,6 +51,11 @@ function pause_main_theme() {
 function stop_main_theme() {
   main_theme.currentTime = 0;
   main_theme.pause();
+};
+
+// win jingle audio functions
+function play_win_jingle() {
+  win_jingle.play();
 };
 
 // ================
@@ -351,6 +357,8 @@ function lose() {
 }
 
 function win() {
+  // play win jingle sound
+  play_win_jingle();
   // cycle bomb color to green in left to right sequence
   cycle_bomb_color();
   // blur game window and sidebar

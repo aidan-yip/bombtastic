@@ -378,7 +378,7 @@ function win() {
     setTimeout(() => {
       win_popup.style.scale = `1`;
     }, 900);
-  }, 6700);
+  }, 6500);
   console.log(`Activate win state`);
 }
 

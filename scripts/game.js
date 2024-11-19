@@ -108,6 +108,7 @@ function pause_bomb_defuse_sound() {
 
 // game elements object
 const game_elements = {
+  game_title: document.querySelector(`#game_title`),
   start_button: document.querySelector(`#start_button`),
   reset_button: document.querySelector(`#reset_button`),
   pause_button: document.querySelector(`#pause_button`),
@@ -422,6 +423,16 @@ win_popup_button.addEventListener(`click`, () => {
   console.log(`Win Popup removed`);
 });
 
+// game title hover event listeners
+game_elements.game_title.addEventListener(`mouseover`, () => {
+  game_elements.game_title.style.color = `#ff1919`;
+});
+
+game_elements.game_title.addEventListener(`mouseleave`, () => {
+  game_elements.game_title.style.color = `#ffffff`;
+});
+
+
 // jQuery code to make popups draggable on mouse drag
 $(function () {
   $(".draggable").draggable();
@@ -458,6 +469,6 @@ game_elements.lose_popup.addEventListener(`mouseup`, () => {
 console.log(`Game.js fully loaded from the network`);
 
 // Offline Alert
-window.addEventListener('offline', function(){
+window.addEventListener('offline', () =>{
   alert("You're offline please reconnect to play Bombtastic.");
 });

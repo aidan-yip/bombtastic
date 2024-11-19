@@ -7,6 +7,7 @@
 const game_title_elements = {
   start_button: document.querySelector(`#start_button`),
   main: document.querySelector(`main`),
+  artist_text: document.querySelector(`#artist_text`),
   artist_link: document.querySelector(`#artist_link`),
   game_title: document.querySelector(`h1`),
 };
@@ -33,10 +34,12 @@ game_title_elements.game_title.addEventListener(`mouseleave`, () => {
 
 game_title_elements.artist_link.addEventListener(`mouseover`, () => {
   game_title_elements.artist_link.style.backgroundColor = `#ffffff`;
+  game_title_elements.artist_link.style.color = `#ff1919`;
 });
 
 game_title_elements.artist_link.addEventListener(`mouseleave`, () => {
   game_title_elements.artist_link.style.backgroundColor = `transparent`;
+  game_title_elements.artist_link.style.color = `#36daff`;
 });
 
 game_title_elements.main.addEventListener(`mouseover`, () => {
@@ -47,6 +50,6 @@ game_title_elements.main.addEventListener(`mouseover`, () => {
 });
 
 // Offline Alert
-window.addEventListener("offline", function () {
+window.addEventListener("offline", () => {
   alert("You're offline please reconnect to play Bombtastic.");
 });

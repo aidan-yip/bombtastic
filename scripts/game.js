@@ -1,6 +1,8 @@
 // Created by Aidan Yip
 // Copyright Aidan Yip. 2024.
 
+"use strict";
+
 // ================
 // variables
 // ================
@@ -452,3 +454,8 @@ game_elements.lose_popup.addEventListener(`mouseup`, () => {
 });
 
 console.log(`Game.js fully loaded from the network`);
+
+// Offline Alert
+window.addEventListener('offline', function(){
+  alert("You're offline please reconnect to play Bombtastic.");
+});

@@ -1,6 +1,8 @@
 // Created by Aidan Yip
 // Copyright Aidan Yip. 2024.
 
+"use strict";
+
 // game variables
 const start_button = document.querySelector(`#start_button`);
 const main = document.querySelector(`main`);
@@ -18,4 +20,9 @@ main.addEventListener(`mouseover`, () => {
   main_title.play();
   main_title.loop = true;
   console.log(`Main title music started.`);
+});
+
+// Offline Alert
+window.addEventListener('offline', function(){
+  alert("You're offline please reconnect to play Bombtastic.");
 });

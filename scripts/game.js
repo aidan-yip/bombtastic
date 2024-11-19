@@ -91,6 +91,7 @@ function stop_explode_sound() {
 
 // bomb defuse sound
 function play_bomb_defuse_sound() {
+  bomb_defuse_sound.volume = 0.8;
   bomb_defuse_sound.currentTime = 0;
   bomb_defuse_sound.play();
 }
@@ -404,6 +405,7 @@ lose_popup_button.addEventListener(`click`, () => {
   game_elements.game_window.style.filter = `blur(0px)`;
   lose_popup.style.display = `none`;
   reset_button.removeAttribute(`disabled`);
+  console.log(`Lose Popup removed`);
 });
 
 win_popup_button.addEventListener(`click`, () => {
@@ -413,6 +415,7 @@ win_popup_button.addEventListener(`click`, () => {
   game_elements.game_window.style.filter = `blur(0px)`;
   win_popup.style.display = `none`;
   reset_button.removeAttribute(`disabled`);
+  console.log(`Win Popup removed`);
 });
 
 // jQuery code to make popups draggable on mouse drag
@@ -424,22 +427,28 @@ $(function () {
 game_elements.lose_popup.addEventListener(`mousedown`, () => {
   game_elements.lose_popup.style.transition = `none`;
   game_elements.lose_popup.style.cursor = `grabbing`;
+  console.log(`mousedown on win popup`);
 });
 
 // remove transition when mouse is down on lose popup
 game_elements.win_popup.addEventListener(`mousedown`, () => {
   game_elements.win_popup.style.transition = `none`;
   game_elements.win_popup.style.cursor = `grabbing`;
+  console.log(`mousedown on lose popup`);
 });
 
 // add transition when mouse is up on win popup
 game_elements.win_popup.addEventListener(`mouseup`, () => {
   game_elements.win_popup.style.transition = ` 0.4s`;
   game_elements.win_popup.style.cursor = `grab`;
+  console.log(`mouseup on win popup`);
 });
 
 // add transition when mouse is up on lose popup
 game_elements.lose_popup.addEventListener(`mouseup`, () => {
   game_elements.lose_popup.style.transition = ` 0.4s`;
   game_elements.lose_popup.style.cursor = `grab`;
+  console.log(`mouseup on lose popup`);
 });
+
+console.log(`Game.js fully loaded from the network`);

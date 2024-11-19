@@ -17,4 +17,5 @@ main.addEventListener(`mouseover`, () => {
   // play audio
   main_title.play();
   main_title.loop = true;
+  console.log(`Main title music started.`);
 });

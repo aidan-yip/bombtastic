@@ -30,6 +30,7 @@ let win_jingle = new Audio(`music/win_jingle.mp3`);
 let explode_sound = new Audio(`audio/explode.wav`);
 let game_pause_sound = new Audio(`audio/pause.mp3`);
 let game_select_sound = new Audio(`audio/select.mp3`);
+let bomb_defuse_sound = new Audio(`audio/bomb_defused.mp3`);
 
 // ================
 // audio functions
@@ -86,6 +87,16 @@ function pause_explode_sound() {
 function stop_explode_sound() {
   explode_sound.currentTime = 0;
   explode_sound.pause();
+}
+
+// bomb defuse sound
+function play_bomb_defuse_sound() {
+  bomb_defuse_sound.currentTime = 0;
+  bomb_defuse_sound.play();
+}
+
+function pause_bomb_defuse_sound() {
+  bomb_defuse_sound.pause();
 }
 
 // ================
@@ -165,6 +176,7 @@ game_elements.bomb_containers.forEach((bombs) => {
     if (!countdown_timer_paused) {
       score++;
       score_text.innerHTML = `Score: ${score}`;
+      play_bomb_defuse_sound();
       console.log(`score:` + score);
       if (score >= 45) {
         win();
@@ -386,6 +398,7 @@ function win() {
 
 // win and lose popup button event listeners
 lose_popup_button.addEventListener(`click`, () => {
+  play_game_select_sound();
   // remove blur on game window and sidebar
   game_elements.sidebar.style.filter = `blur(0px)`;
   game_elements.game_window.style.filter = `blur(0px)`;
@@ -394,6 +407,7 @@ lose_popup_button.addEventListener(`click`, () => {
 });
 
 win_popup_button.addEventListener(`click`, () => {
+  play_game_select_sound();
   // remove blur on game window and sidebar
   game_elements.sidebar.style.filter = `blur(0px)`;
   game_elements.game_window.style.filter = `blur(0px)`;

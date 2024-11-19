@@ -29,6 +29,22 @@ h1 {
   animation-timing-function: ease-in-out;
 }
 
+p {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  margin-top: 0rem;
+}
+
+a, a:visited {
+  color: #36daff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff1919;
+}
+
 /* inputs */
 
 #start_button {

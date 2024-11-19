@@ -106,7 +106,7 @@ function pause_bomb_defuse_sound() {
 // game objects
 // ================
 
-// game elements object list
+// game elements object
 const game_elements = {
   start_button: document.querySelector(`#start_button`),
   reset_button: document.querySelector(`#reset_button`),

@@ -348,6 +348,7 @@ function reset_game() {
     bombs.style.transition = `none`;
     bombs.style.backgroundColor = `#ffffff`;
   });
+  reset_button.setAttribute(`disabled`, true);
   console.log(`Game Reset`);
 }
 
@@ -382,6 +383,7 @@ function win() {
   time_text.innerHTML = `You Win!`;
   // display win popup
   setTimeout(() => {
+    play_game_pause_sound();
     // blur game window and sidebar
     game_elements.sidebar.style.filter = `blur(5px)`;
     game_elements.game_window.style.filter = `blur(5px)`;

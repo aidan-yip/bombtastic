@@ -29,7 +29,7 @@ let win_jingle = new Audio(`music/win_jingle.mp3`);
 // sound fx
 let explode_sound = new Audio(`audio/explode.wav`);
 let game_pause_sound = new Audio(`audio/pause.mp3`);
-let game_resume_sound = new Audio(`audio/resume.mp3`);
+let game_select_sound = new Audio(`audio/select.mp3`);
 
 // ================
 // audio functions
@@ -68,9 +68,9 @@ function play_game_pause_sound() {
   game_pause_sound.play();
 }
 
-function play_game_resume_sound() {
-  game_resume_sound.currentTime = 0;
-  game_resume_sound.play();
+function play_game_select_sound() {
+  game_select_sound.currentTime = 0;
+  game_select_sound.play();
 }
 
 // explode sound
@@ -203,11 +203,13 @@ function three_dot_animation() {
 
 // game start on start button click
 game_elements.start_button.addEventListener(`click`, () => {
+  play_game_select_sound();
   start_game();
 });
 
 // game start on start button click
 game_elements.reset_button.addEventListener(`click`, () => {
+  play_game_select_sound();
   reset_game();
 });
 
@@ -275,7 +277,7 @@ function pause_game() {
 }
 
 function resume_game() {
-  play_game_resume_sound();
+  play_game_select_sound();
   enable_bombs();
   countdown_timer = setInterval(countdown, 1000);
   bomb_disable_repeat = setInterval(random_disabled_bomb, 150);

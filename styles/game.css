@@ -12,6 +12,7 @@
 body {
   background-color: #1b1b1b;
   font-family: var(--main-font);
+  line-height: 1.5;
   color: #ffffff;
 }
 
@@ -88,6 +89,10 @@ span.font_icon {
   height: 4rem;
   margin-top: 0rem;
   background-color: #242424c7;
+}
+
+#pause_button:hover {
+  animation: blueWhiteCycle 1s infinite;
 }
 
 #start_button:hover,
@@ -213,6 +218,7 @@ span.font_icon {
   box-shadow: #ff1919 0 0 10px inset, #ffffffae 0 0 25px;
   scale: 1.1;
   cursor: copy;
+  animation: blueWhiteCycle 1s infinite;
 }
 
 .bomb_container:active {
@@ -273,5 +279,20 @@ span.font_icon {
   #win_popup,
   #lose_popup {
     width: 50%;
+  }
+}
+
+@keyframes blueWhiteCycle {
+  0% {
+    border: #0095ff solid 3px;
+    box-shadow: #0095ff 0 0 10px 2rem inset;
+  }
+  50% {
+    border: #ffffff solid 3px;
+    box-shadow: #ffffff 0 0 10px inset;
+  }
+  100% {
+    border: #0095ff solid 3px;
+    box-shadow: #0095ff 0 0 10px 2rem inset;
   }
 }

@@ -182,7 +182,7 @@ game_elements.bomb_containers.forEach((bombs) => {
       score_text.innerHTML = `Score: ${score}`;
       play_bomb_defuse_sound();
       console.log(`score:` + score);
-      if (score >= 45) {
+      if (score >= 60) {
         win();
         end_game();
       }
